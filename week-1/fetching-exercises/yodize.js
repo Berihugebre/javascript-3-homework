@@ -4,9 +4,7 @@ function yodize() {
   const phrase = document.getElementById('to-yodize').value;
 
   const encoded = encodeURIComponent(phrase);
-
   const url = 'https://api.funtranslations.com/translate/yoda.json?text=' + encoded;
-
   /*
     use fetch to send a get request to the url above
     then log only the translated phrase
@@ -15,10 +13,10 @@ function yodize() {
   xhr.onreadystatechange = function() {
     if (xhr.readyState === 4 && xhr.status >= 200 && xhr.status < 300) {
       const response = JSON.parse(xhr.response);
-      const translated = response.contents.translated;
-      console.log(translated);
+      const yodized = response.contents.translated;
+      console.log(yodized);
       const p = document.createElement('p');
-      p.innerHTML = `your Yodizided result is:  ${translated}`;
+      p.innerHTML = `your Yodizided result is:  ${yodized}`;
       const firstDiv = document.getElementsByTagName('div')[0];
       firstDiv.appendChild(p);
     }
@@ -26,5 +24,4 @@ function yodize() {
   xhr.open('get', url);
   xhr.send();
 }
-
 document.getElementById('yodize').addEventListener('click', yodize);
