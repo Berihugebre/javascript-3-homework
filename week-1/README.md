@@ -3,10 +3,10 @@
 | :mortar_board: | your emoji | your comments | coach emoji | coach comments |
 | --- | --- | --- | --- | --- |
 | :egg: __[reference type arguments](./reference-type-args.md)__ |:green_heart: | | | |
-| :egg: __[closure: 0 & 1](../exercises-closure)__ | | | | |
+| :egg: __[closure: 0 & 1](../exercises-closure)__ | :green_heart:| | | |
 | :egg: __[event loop: 1 & 2](../exercises-event-loop)__ | | | | |
 | :egg: __[promise practice](./promise-practice.md)__ | | | | | 
-| :egg: __[three-layer handlers](./three-layer-handlers)__ |:wavy_dash: | | | |
+| :egg: __[three-layer handlers](./three-layer-handlers)__ |:question: | in cauculator.js should I have to work only on the result_handler| | |
 | :hatching_chick: __[fetch data from APIs](./fetching-exercises)__ | :green_heart:| | | |
 | :hatching_chick: __[using BasicModel](./using-BasicModel.html)__ | | | | |
 
