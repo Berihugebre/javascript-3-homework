@@ -3,11 +3,9 @@
   <html lang="en">
   <head>
     <meta charset="utf-8">
-
     <script src="open-in-.js"></script>
     <script src="copy-snippet.js"></script>
     <script src="console-assert.js"></script>
-
   </head>
 
   <body>
@@ -39,23 +37,23 @@
 
   setTimeout(function assert_a() {
       console.assert(x === "javascript", "exercise 1", "a");
-  }, null);
+  }, 16000);
 
   setTimeout(function append_lastname() {
       x += "script";
-  }, null);
+  }, 12000);
 
   setTimeout(function assert_b() {
       console.assert(x === "java", "exercise 1", "b");
-  }, null);
+  }, 8000);
 
   setTimeout(function append_firstname() {
       x += "java";
-  }, null);
+  }, 4000);
 
   setTimeout(function assert_c() {
       console.assert(x === "", "exercise 1", "c");
-  }, null);
+  }, 0);
 
 }
       </script>
@@ -76,19 +74,19 @@
   let x = "";
 
   setTimeout(function assert_a() {
-      console.assert(x === null, "exercise 2", "a");
+      console.assert(x === 'final value', "exercise 2", "a");
   }, 500);
 
   x = "second value";
 
   setTimeout(function assert_b() {
-      console.assert(x === null, "exercise 2", "b");
+      console.assert(x === 'final value', "exercise 2", "b");
   }, 500);
 
   x = "third value";
 
   setTimeout(function assert_c() {
-      console.assert(x === null, "exercise 2", "c");
+      console.assert(x === 'final value', "exercise 2", "c");
   }, 500);
 
   x = "final value";
@@ -113,25 +111,25 @@
   let x = "";
 
   setTimeout(function assert_a(y) {
-      console.assert(y === null, "exercise 3", "a");
+      console.assert(y === '', "exercise 3", "a");
   }, 500, x);
 
   x = "second";
 
   setTimeout(function assert_b(y, z) {
-      console.assert(y+z === null, "exercise 3", "b");
+      console.assert(y+z === 'second3', "exercise 3", "b");
   }, 500, x, 3);
 
   x = "third";
 
   setTimeout(function assert_c(y, z) {
-      console.assert(y+z === null, "exercise 3", "c");
+      console.assert(y+z === 'thirdthird', "exercise 3", "c");
   }, 500, x, x);
 
   x = "fourth";
 
   setTimeout(function assert_d(y, z) {
-      console.assert(x+y+z === null, "exercise 3", "d");
+      console.assert(x+y+z === 'finalfourthfourth', "exercise 3", "d");
   }, 500, x, x);
 
   x = "final";
@@ -145,8 +143,6 @@
     </div>
     
     <hr>
-
-
     <div id="exercise-4">
       <h3>exercise 4</h3>
       <p>
@@ -157,6 +153,7 @@
   // do what the callbacks say
   setTimeout(function(err, msg) {
     if (err) {
+      throw err;
       // throw the error to prevent reaching the false assert
       console.assert(false, "exercise 4", "a"); // don't change this line
     } else {
@@ -164,17 +161,15 @@
     }
   }, 0, new Error("handle me!"), "ignore me");
 
-
   setTimeout(function(err, msg) {
-    if (true) { // put one of the arguments in the condition to pass
+    if (err) { // put one of the arguments in the condition to pass
       console.assert(false, "exercise 4", "b");
     } else {
       console.assert(true, "exercise 4", "b");
     }
   }, 0, null, "ignore me");
 
-
-  setTimeout(function() { // add arguments to avoid the false assert
+  setTimeout(function(msg,err) { // add arguments to avoid the false assert
     if (err) {
       console.assert(true, "exercise 4", "c");
     } else {
@@ -189,17 +184,16 @@
     } else {
       console.assert(true, "exercise 4", "d");
     }
-  }, 0, true, true); // fix these arguments to reach the false assert
-
+  }, 0, null, 'msg'); // fix these arguments to reach the false assert
 
   setTimeout(function(err, msg) { 
     if (err) {
       throw err;
-      console.assert(false, "exercise 4", "d");
+      console.assert(false, "exercise 4", "e");
     } else {
-      console.assert(false, "exercise 4", "d");
+      console.assert(false, "exercise 4", "e");
     }
-  }, 0, ); // define arguments to avoid the false assert
+  }, 0, new Error("handle me!"), 'hello' ); // define arguments to avoid the false assert
 }
       </script>
       <button onclick="copy_code('solution-4')">run in console</button>
@@ -219,7 +213,7 @@
   let x = "";
 
   setTimeout(function assert_a(y) {
-      console.assert(y === null, "exercise 5", "a");
+      console.assert(y === '', "exercise 5", "a");
       x = "assert a";
   }, 100, x);
 
@@ -227,19 +221,20 @@
 
   setTimeout(function assert_b(y, z) {
       x = "assert b";
-      console.assert(y+z === null, "exercise 5", "b");
+      console.assert(y+z === 'second5', "exercise 5", "b");
   }, 500, x, 5);
 
   x = "third";
 
   setTimeout(function assert_c(y, z) {
-      console.assert(y+z === null, "exercise 5", "c");
+      console.assert(y+z === 'thirdthird', "exercise 5", "c");
   }, 200, x, x);
 
   x = "fourth";
 
   setTimeout(function assert_d(y, z) {
-      console.assert(x+y+z === null, "exercise 5", "d");
+      console.assert(x+y+z === 'assert afourthfourth', "exercise 5", "d"); 
+      // this is tricky i don't really understand it why the first x  = assert a
       x = "assert d";
   }, 300, x, x);
 
@@ -251,11 +246,8 @@
       <button onclick="copy_code('solution-5')">run in console</button>
       <button onclick="open_in_loupe('solution-5')">run in loupe</button>
       <button onclick="open_in_louping('solution-5')">edit in louping</button>
-    </div>
-    
+    </div>  
     <hr>
-
-
     <div id="exercise-6">
       <h3>exercise 6</h3>
       <p>
@@ -267,28 +259,27 @@
   let by_value = "val: first";
 
   setTimeout(function a_assert() {
-    console.assert(by_value === null, "exercise 6", "a");
+    console.assert(by_value === 'val: second', "exercise 6", "a");
   }, 0);
 
   setTimeout(function b_assert(x) {
-    console.assert(x === null, "exercise 6", "b");
+    console.assert(x === 'val: first', "exercise 6", "b");
   }, 0, by_value);
 
   by_value = "val: second";
 
-  
   let by_ref = {prop: "ref: first"};
 
   setTimeout(function c_assert() {
-    console.assert(by_ref.prop === null, "exercise 6", "c");
+    console.assert(by_ref.prop === "ref: second", "exercise 6", "c");
   }, 0);
 
   setTimeout(function d_assert(x) {
-    console.assert(x === null, "exercise 6", "d");
+    console.assert(x === "ref: first", "exercise 6", "d");
   }, 0, by_ref.prop);
 
   setTimeout(function e_assert(x) {
-    console.assert(x.prop === null, "exercise 6", "e");
+    console.assert(x.prop === "ref: second", "exercise 6", "e");
   }, 0, by_ref);
 
   by_ref.prop = "ref: second";
@@ -309,25 +300,24 @@
       </p>
       <script id="solution-7">
 { // set the "null"s to values to pass the asserts
-
+ // exercise 7 not very clear 
   let by_value = "val: first";
 
   setTimeout(function a_change() {
     by_value = "a change";
   }, 0);
   setTimeout(function a_assert() {
-    console.assert(by_value === null, "exercise 7", "a");
+    console.assert(by_value === 'a change', "exercise 7", "a");
   }, 1);
 
   setTimeout(function b_change(x) {
     x = "b change";
   }, 2, by_value);
   setTimeout(function b_assert(x) {
-    console.assert(x === null, "exercise 7", "b");
+    console.assert(x === 'val: first', "exercise 7", "b");
   }, 4, by_value);
 
   by_value = "val: second";
-
   
   let by_ref = {prop: "ref: first"};
 
@@ -335,21 +325,21 @@
     by_ref.prop = "c change";
   }, 0);
   setTimeout(function c_assert() {
-    console.assert(by_ref.prop === null, "exercise 7", "c");
+    console.assert(by_ref.prop === "c change" , "exercise 7", "c");
   }, 1);
 
   setTimeout(function d_change(x) {
     x = "d change";
   }, 2, by_ref.prop);
   setTimeout(function d_assert(x) {
-    console.assert(x === null, "exercise 7", "d");
+    console.assert(x === "ref: first", "exercise 7", "d");
   }, 3, by_ref.prop);
 
   setTimeout(function e_change(x) {
     x.prop = "e change";
   }, 4, by_ref);
   setTimeout(function e_assert(x) {
-    console.assert(x.prop === null, "exercise 7", "e");
+    console.assert(x.prop === "e change", "exercise 7", "e");
   }, 5, by_ref);
 
   by_ref.prop = "ref: second";
@@ -363,7 +353,6 @@
 
     <hr>
 
-
     <div id="exercise-8">
       <h3>exercise 8</h3>
       <p> 
@@ -372,16 +361,14 @@
       </p>
       <script id="solution-8">
 { // replace the "null"s in the guess arrays to pass the asserts
-  const var_guess = [null, null, null];
+  const var_guess = [3, 3, 3]; // what is wrong with this error 
 
   for (var i = 0; i < 3; i++) {
     setTimeout(function var_assert() {
       console.assert(i === var_guess[i], "exercise 8", "var");
     }, 600);
   }
-
-
-  const let_guess = [null, null, null];
+  const let_guess = [0, 1, 2];
 
   for (let i = 0; i < 3; i++) {
     setTimeout(function let_assert() {
@@ -389,8 +376,7 @@
     }, 600);
   }
 
-
-  const const_guess = [null, null, null];
+  const const_guess = [0, 1, 2];
 
   for (const i = 0; i < 3; i++) {
     console.log(i)
