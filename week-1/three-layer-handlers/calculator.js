@@ -116,7 +116,16 @@ function results_handler() {
   // pass user input through core logic
   // no logic to do
   var p = document.createElement('p');
-  p.innerHTML = results;
+  var answers = results.reduce(elem => {
+    if (elem.op === 'add') {
+      return elem.first + elem.second;
+    } else if (elem.op === 'subtract')
+      return elem.first - elem.second;
+    else {
+      return `please choose operations`
+    }
+  });
+  console.log(answers)
   var output_field = document.getElementById('result');
   output_field.appendChild(p);
   // report result to user
