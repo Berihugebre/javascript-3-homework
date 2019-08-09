@@ -86,16 +86,15 @@ function get_by_length() {
   xhr.onreadystatechange = function() {
     if (xhr.readyState === 4 && xhr.status >= 200 && xhr.status < 300) {
       const response = JSON.parse(xhr.response);
-      console.log(response);
       const result = response.contents.quotes[0].quote;
-      console.log(result);
-    }
+      const containerFour = document.getElementById('containerFour');
+      containerFour.innerHTML = result;      
+      }
   };
   xhr.open('get', url);
   xhr.send();
 }
 document.getElementById('get-by-length').addEventListener('click', get_by_length);
-
 function length_and_category() {
   // read user input
   // build your url
@@ -116,7 +115,8 @@ function length_and_category() {
       const response = JSON.parse(xhr.response);
       console.log(response);
       const result = response.contents.quotes[0].quote;
-      console.log(result);
+      const containerFive = document.getElementById('containerFive');
+      containerFive.innerHTML = result;
     }
   };
   xhr.open('get', url);
