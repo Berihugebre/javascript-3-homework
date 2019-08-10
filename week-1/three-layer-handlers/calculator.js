@@ -5,19 +5,16 @@ var results = [];
 // --- functions ---
 
 function add(a, b) {
-  return 'the sum of ' + a + ' and ' + b;
+  return `the sum of ${a} and ${b} is : ${a + b}` ;
 }
-
 function subtract(a, b) {
-  return 'the difference between ' + a + ' and ' + b;
+  return `the difference of ${a} and ${b} is : ${a - b}` ;
 }
-
 function multiply(a, b) {
-  return 'the product of ' + a + ' and ' + b;
+  return `the product of ${a} and ${b} is : ${a * b}` ;
 }
-
 function divide(a, b) {
-  return 'the quotient of ' + a + ' and ' + b;
+  return `the quotient of ${a} and ${b} is : ${a / b}` ;
 }
 
 // --- handlers & listeners ---
@@ -115,21 +112,8 @@ function results_handler() {
   // no user input to read
   // pass user input through core logic
   // no logic to do
-  var p = document.createElement('p');
-  var answers = results.reduce(elem => {
-    if (elem.op === 'add') {
-      return elem.first + elem.second;
-    } else if (elem.op === 'subtract')
-      return elem.first - elem.second;
-    else {
-      return `please choose operations`
-    }
-  });
-  console.log(answers)
-  var output_field = document.getElementById('result');
-  output_field.appendChild(p);
   // report result to user
-  firstNumber = console.log(results);
+  console.log(results);
 }
 
 var results_button = document.getElementById('results');
