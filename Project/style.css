@@ -1,0 +1,34 @@
+body{
+  display: grid;
+  grid-template-columns:  1fr 1fr;
+  grid-gap: 5%;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+#btn-1 {
+  height: 100px;
+  width: 150px;
+  padding-top:10px;
+  text-align: center;
+}
+
+header{
+  text-align: center;
+  grid-column: 1/3 ;
+  grid-row: 1 /2;
+}
+#root{
+  grid-column: 2 /2 ;
+}
+#loader {
+  display: none;
+}
+.table{
+  width : 450px;
+}
+img{
+  width: 250px;
+  height: 250px;
+}
+#countries{
+  width: 450px;
+}
