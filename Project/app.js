@@ -2,16 +2,10 @@ const buttonOne = document.getElementById('btn-1');
 buttonOne.addEventListener('click', getCountries);
 const loader = document.getElementById('loader');
 const root = document.getElementById('root');
-createAndAppend('select',root, {id:'countries'})
+createAndAppend('select', root, { id: 'countries' , style : 'display: none;'})
 const selector = document.getElementById('countries');
 const containerOne = createAndAppend('div', root);
 let allCountries = [];
-function fetchJSON (url) {
- return fetch(url).then(response => response.json())
-    .then(data => data);
-}
-console.log(fetchJSON('https://pokeapi.co/api/v2/pokemon/'));
-
 function getCountries() {
   loader.style = 'display : inherit';
   fetch('https://restcountries.eu/rest/v2/all')
@@ -20,6 +14,7 @@ function getCountries() {
       allCountries = countries;
       loader.style = 'display : inherit';
       buttonOne.setAttribute('disabled', '');
+      selector.style = 'display:block';
       for (let i = 0; i < countries.length; i++) {
         createAndAppend('option', selector, { text: `${countries[i].name}`, value: `${i}` });
       }
