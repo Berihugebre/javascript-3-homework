@@ -23,8 +23,8 @@
     const updated_fish_entry = fish.read(0);
     console.assert(updated_fish_entry.fast === true, "first fish is no longer fast");
     console.assert(updated_fish_entry.endangered === true, "first fish isn't now endangered");
-
     fish.remove(0);
+
     try {
       console.log(fish.read(0));
     } catch(err) {
@@ -48,38 +48,38 @@
 
     // exercises to complete
 
-    const birds = "birds";
+    const birds = new BasicModel("bird");
     console.assert(birds instanceof BasicModel, "bird is not an instance of BasicModel");
     console.assert(birds.name === "bird", "bird is not named bird");
 
     birds.create({color: "red", can_fly: true, species: "cardinal"});
 
-    const second_bird = {}; // fix this line
+    const second_bird = {can_fly: true}; // fix this line
     birds.create(second_bird);
-    const second_bird_entry = {}; // fix this line
+    const second_bird_entry = birds.read(1); // fix this line
     console.assert(second_bird_entry.can_fly === true, "second bird can fly");
     console.assert(second_bird_entry._id === 1, "second bird isn't the second bird (1)");
 
-    second_bird.color = null;  // fix this line
+    second_bird.color = 'orange';  // fix this line
     birds.update(1, second_bird);
-    const updated_bird_entry = {}; // fix this line
+    const updated_bird_entry = birds.read(1); // fix this line
     console.assert(updated_bird_entry.color === "orange", "second bird is no longer purple");
     console.assert(updated_bird_entry.can_fly === true, "second bird devolved");
     console.assert(second_bird_entry._id === 1, "second bird isn't the second bird (2)");
 
-    birds.remove(3); // fix this line
+    birds.remove(1); // fix this line
     try {
       console.log(birds.read(3));
     } catch(err) {
       console.error(err);
     }
 
-    const third_bird = null; // fix this line
+    const third_bird = {color: "red", can_fly: true, species: "pigeon"}; // fix this line
     birds.create(third_bird);
-    const third_bird_entry = birds.read(/* the newest entry's id*/);
+    const third_bird_entry = birds.read(3);
     console.assert(third_bird_entry.species === "pigeon", "third bird isn't a pigeon");
     // fix the next assert
-    console.assert(third_bird_entry._id === null, "third bird isn't the third bird");
+    console.assert(third_bird_entry._id === 3, "third bird isn't the third bird");
 
     console.log("active bird ids", birds.activeIds);
 

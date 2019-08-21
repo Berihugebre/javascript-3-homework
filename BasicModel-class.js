@@ -9,7 +9,6 @@ class BasicModel {
     this._DB = {};
     this._nextID = 0;
   }
-
   get name() {
     return this._name;
   }
@@ -18,7 +17,7 @@ class BasicModel {
   }
   get activeIds() {
     const id_strings = Object.keys(this._DB);
-    const id_numbers = as_strings.map(x => Number(x));
+    const id_numbers = id_strings.map(x => Number(x));
     return id_numbers;
   }
 
