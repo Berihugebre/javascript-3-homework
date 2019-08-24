@@ -1,0 +1,30 @@
+body{     
+  padding-left: 3%;
+  padding-bottom: 1%;
+}
+#display_zone {
+  width : 30%;
+  height: 20%;
+  padding: 2% 1%;
+}
+#listOfCountries{
+  width: 30%;
+}
+p, img{
+  width: 100%;
+}
+#loading {
+  width: 10%;
+  height: 5%;
+  padding-top: 2px;
+  position: fixed;
+  opacity: 0.7;
+  background-color: #fff;
+  z-index: 99;
+  display: none;
+}
+#loading-image {
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+}

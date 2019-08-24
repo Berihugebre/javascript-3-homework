@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Js3 week3 project</title>
+  </head>
+  <body>
+    <header>
+      <h1> Hack Your Future Single Page Application(SPA)</h1>
+    </header>
+    <main id="main">
+      <p>Click <span>Get Countries</span> button to start</p>
+      <button id="get_countries" class = 'btn btn-success'>Get Countries</button> <br>
+      <select id="listOfCountries"></select>
+      <div id="loading">
+        <img id="loading-image" src="./assets/loading-icon.jpg" alt="Loading..." />
+      </div>
+      <section id="display_zone"></section>
+    </main>
+    <script src="CreateElement.js"></script>
+    <script src="Countries.js"></script>
+    <script src="Main.js"></script>
+  </body>
+</html>
