@@ -23,5 +23,5 @@ function delete_city_handler() {
 
 }
 
-const delete_city_button = document.getElementById("create-city");
+const delete_city_button = document.getElementById("delete-city");
 delete_city_button.addEventListener("click", delete_city_handler);

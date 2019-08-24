@@ -1,2 +1,2 @@
-const cities = [];
-let next_id = 0000;
+// const cities = [];
+// let next_id = 0000;

@@ -1,8 +1,13 @@
 // take not of each error you find
 //  where was it?
+// line 38 and last line 
 //  how did you find it?
+// developer tool (console in browser) 
 //  what was wrong?
+// ReferenceError and result was not displayed to user
 //  how did you fix it?
+// appending length_ul to movies- div container
+// 
 /* 
     write error notes here
 */
@@ -21,7 +26,6 @@ function length_handler() {
           length: movies_data[key].running_times,
         });
       }
-      
       const sorted_by_length = all_movies.concat().sort((a, b) => a.running_times < b.running_times);
 
       // display result to user
@@ -36,8 +40,7 @@ function length_handler() {
         next_li.innerHTML = movie.length/60+" min: "+movie.title;
         lengths_ul.appendChild(next_li);
       }
-
-
+      movies_div.appendChild(lengths_ul);
     })
     .catch(function(err) {
       console.error(err);
@@ -45,4 +48,4 @@ function length_handler() {
 
 }
 var length_button = document.getElementById("length");
-length_button.addEventListener(click, lenth_handler);
+length_button.addEventListener('click', length_handler);

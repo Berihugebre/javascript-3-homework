@@ -1,4 +1,4 @@
-function view_all_handler() {
+   function view_all_handler() {
   // read user input
   // no user input
 
@@ -7,7 +7,7 @@ function view_all_handler() {
   for (let key in cities) {
     cities.push(cities[key]);
   }
-
+console.log(cities_entries)
   // show results to user
   const display_zone = document.getElementById("display-zone");
   while(display_zone.firstChild){
@@ -17,7 +17,7 @@ function view_all_handler() {
   const cities_ul = document.createElement("ul");
   for (let city of cities_entries) {
     const next_li = document.createElement("li");
-    citis_ul.innerHTML = city.id+": "+city.name;
+    cities_ul.innerHTML = city.id+": "+city.name;
     cities_ul.appendChild(next_li);
   }
 

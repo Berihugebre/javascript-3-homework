@@ -1,3 +1,5 @@
+let next_id = 0;
+const cities = [];
 function add_city_handler() {
   // read user input
   const name_field = document.getElementById("city-name");
@@ -15,9 +17,10 @@ function add_city_handler() {
     name: city_name,
     country: city_country,
     population: city_population
-  }
+  }  
   cities[next_id] = new_city;
   next_id++;
+  console.log(cities)
 
   // show results to user
   const display_zone = document.getElementById("display-zone");
@@ -47,5 +50,5 @@ function add_city_handler() {
 
 }
 
-const add_city_button = document.getElementById("delete-city");
+const add_city_button = document.getElementById("create-city");
 add_city_button.addEventListener("click", add_city_handler);

@@ -17,21 +17,21 @@ function year_handler() {
       const all_movies = [];
       for (let key in movies_data) {
         all_movies.push({
-          title: movies_data.key.title,
+          title: movies_data[key].title,
           year: movies_data[key].year,
         });
       }
       
       const sorted_by_year = all_movies.concat().sort((a, b) => a.year < b.year);
-
+      
       // display result to user
       const movies_div = document.getElementById("movies-div");
-      while(movies_div.firslChild){
+      while(movies_div.firstChild){
           movies_div.removeChild(movies_div.firstChild);
       }
 
       const years_ul = document.createElement("ul");
-      for (let movie in all_movies) {
+      for (let movie of sorted_by_year) {
         const next_li = document.createElement("li");
         next_li.innerHTML = movie.year+": "+movie.title;
         years_ul.appendChild(next_li);
